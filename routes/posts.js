@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/api/:postId", async (req, res) => {
+router.get("/nft/:postId", async (req, res) => {
   try {
     const post = await Post.findById(req.params.postId);
     res.json(post);
@@ -20,12 +20,26 @@ router.get("/api/:postId", async (req, res) => {
   }
 });
 // send data to server when create nft
+// {
+//   "name": "My-NFT",
+//   "description": "",
+//   "id": "09",
+//   "image": "@2x.png",
+//   "attributes": {
+//     "class": "Beginner",
+//     "rarity": "Common"
+//   }
+// }
 router.post("/", async (req, res) => {
   console.log(req.body);
   const post = new Post({
     _id: req.body._id,
-    title: req.body.title,
+    name: req.body.name,
     description: req.body.description,
+    image: req.body.image,
+    dame: req.body.dame,
+    rarity: req.body.rarity,
+
   });
   try {
     const savedPost = await post.save();

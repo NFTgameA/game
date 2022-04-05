@@ -13,13 +13,16 @@
 
     <script>
         document.getElementById('post').addEventListener('click', () => {
-            fetch('http://localhost:3001/posts',
+            let nft = {
+                "_id": 5,
+                "title": "first2",
+                "description": "Content-MD5:"
+            }
+            fetch('http://localhost:3001/api',
                 {
                     method: "POST",
-                    body: JSON.stringify({
-                        "title": "first2",
-                        "description": "Content-MD5:"
-                    }),
+                    body: JSON.stringify(nft
+                    ),
                     mode: 'cors',
                     headers: {
                         'Content-Type': 'application/json',

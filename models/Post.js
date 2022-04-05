@@ -1,10 +1,13 @@
 const mongoose = require("mongoose");
 const PostSchema = mongoose.Schema({
   _id: Number,
-  title: {
+  name: {
     type: String,
     require: true,
   },
+  image: String,
+  dame: String,
+  rarity: String,
   description: {
     type: String,
     require: true,
@@ -15,3 +18,5 @@ const PostSchema = mongoose.Schema({
   },
 });
 module.exports = mongoose.model("Posts", PostSchema);
+
+

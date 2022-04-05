@@ -10,12 +10,13 @@ app.use(bodyParser.json());
 require("dotenv/config");
 //Import router
 const postsRoute = require("./routes/posts");
-
-app.use("/posts", postsRoute);
-
 app.get("/", (req, res) => {
-  res.json("Hello");
+  res.json("NFT721");
 });
+
+app.use("/api", postsRoute);
+
+
 // app.get("/posts", (req, res) => {
 //   res.send("List post");
 // });
@@ -24,4 +25,7 @@ app.get("/", (req, res) => {
 mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true }, () => {
   console.log("Connect to Mongoose");
 });
-app.listen(process.env.PORT || 3001);
+const PORT = process.env.PORT || 3001
+app.listen(PORT, () => {
+  console.log('PORT:' + PORT);
+});
