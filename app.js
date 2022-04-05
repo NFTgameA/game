@@ -24,4 +24,4 @@ app.get("/", (req, res) => {
 mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true }, () => {
   console.log("Connect to Mongoose");
 });
-app.listen(3001);
+app.listen(process.env.PORT || 3001);
