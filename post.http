@@ -1,0 +1,14 @@
+GET http://localhost:3001/posts/api
+
+###
+
+POST http://localhost:3001/posts
+
+Content-Type: application/json;charset=utf-8
+
+{
+
+    "title": "first",
+    "description": "Content-MD5:"
+  
+}
